@@ -60,7 +60,7 @@ def remove_html(text: str) -> str:
     text_wo_html_tags = remove_extra_spaces(text)
     return text_wo_html_tags
 
-def remove_urls(text: str):
+def remove_urls(text: str) -> str:
     """Removes URLs from a string
 
     Args:
