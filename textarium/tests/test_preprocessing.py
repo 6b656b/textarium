@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 import textarium.preprocessing as preprocessing
+from textarium.models import word_tokenizer
 
 class TestPreprocessing(TestCase):
     def test_remove_extra_spaces(self):
@@ -28,4 +29,11 @@ class TestPreprocessing(TestCase):
         """
         expected_result = "This line contains URL and"
         result = preprocessing.remove_urls(test_input)
+        self.assertEqual(expected_result, result)
+
+    def test_remove_tokens(self):
+        test_input = "This dog line contains cat extra mouse word bird tokens"
+        tokens_to_exclude = ["dog", "cat", "mouse", "bird"]
+        expected_result = "This line contains extra word tokens"
+        result = preprocessing.remove_tokens(test_input, word_tokenizer, tokens_to_exclude)
         self.assertEqual(expected_result, result)
