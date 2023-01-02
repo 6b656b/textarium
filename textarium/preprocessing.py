@@ -4,9 +4,7 @@
 Text cleaning and preprocessing functions.
 """
 
-import re
 import string
-import unicodedata
 from typing import List, Set, Union
 
 
