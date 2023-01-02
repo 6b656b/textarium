@@ -14,3 +14,9 @@ class TestPreprocessing(TestCase):
         expected_result = "This line has extra chars"
         result = preprocessing.remove_charset(test_input, charset="30!-")
         self.assertEqual(expected_result, result)
+
+    def test_remove_html(self):
+        test_input = "<div>This line contains HTML-tags&nbsp</div>"
+        expected_result = "This line contains HTML-tags"
+        result = preprocessing.remove_html(test_input)
+        self.assertEqual(expected_result, result)

@@ -43,8 +43,8 @@ def remove_charset(text: str, charset: string) -> str:
 
     return text_wo_charset
 
-def remove_html_tags(text: str) -> str:
-    """Removes HTML-tags from a string
+def remove_html(text: str) -> str:
+    """Removes HTMLtags and other special symbols from a string
 
     Args:
         text (str): Any string
@@ -53,7 +53,11 @@ def remove_html_tags(text: str) -> str:
         str: A string without HTML-tags
     """
     re_pattern = re.compile("<.*?>+")
-    text_wo_html_tags = re_pattern.sub(r" ", text)
-    return text_wo_html_tags.strip()
+    text = re_pattern.sub(r" ", text)
+    text = text.replace("&nbsp", " ")
+    text = text.replace("&lt", " ")
+    text = text.replace("&gt", " ")
+    text_wo_html_tags = remove_extra_spaces(text)
+    return text_wo_html_tags
 
 
