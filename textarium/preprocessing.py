@@ -44,7 +44,7 @@ def remove_charset(text: str, charset: string) -> str:
     return text_wo_charset
 
 def remove_html(text: str) -> str:
-    """Removes HTMLtags and other special symbols from a string
+    """Removes HTML-tags and other special symbols from a string
 
     Args:
         text (str): Any string
@@ -59,5 +59,19 @@ def remove_html(text: str) -> str:
     text = text.replace("&gt", " ")
     text_wo_html_tags = remove_extra_spaces(text)
     return text_wo_html_tags
+
+def remove_urls(text: str):
+    """Removes URLs from a string
+
+    Args:
+        text (str): Any string
+
+    Returns:
+        str: A string without any URLs
+    """
+    url_pattern = re.compile(r"http\S+")
+    text_wo_urls = url_pattern.sub(r"", text)
+    text_wo_urls = remove_extra_spaces(text_wo_urls)
+    return text_wo_urls
 
 

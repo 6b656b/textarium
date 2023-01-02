@@ -20,3 +20,12 @@ class TestPreprocessing(TestCase):
         expected_result = "This line contains HTML-tags"
         result = preprocessing.remove_html(test_input)
         self.assertEqual(expected_result, result)
+
+    def test_remove_url(self):
+        test_input = """
+        This line contains URL http://google.com and 
+        https://amazon.com https://yandex.ru/items?url=1
+        """
+        expected_result = "This line contains URL and"
+        result = preprocessing.remove_urls(test_input)
+        self.assertEqual(expected_result, result)
