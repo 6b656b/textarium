@@ -5,6 +5,7 @@ Text cleaning and preprocessing functions.
 """
 
 import string
+import re
 from typing import List, Set, Union
 
 
@@ -41,5 +42,18 @@ def remove_charset(text: str, charset: string) -> str:
     text_wo_charset = remove_extra_spaces(text_wo_charset)
 
     return text_wo_charset
+
+def remove_html_tags(text: str) -> str:
+    """Removes HTML-tags from a string
+
+    Args:
+        text (str): Any string
+
+    Returns:
+        str: A string without HTML-tags
+    """
+    re_pattern = re.compile("<.*?>+")
+    text_wo_html_tags = re_pattern.sub(r" ", text)
+    return text_wo_html_tags.strip()
 
 
