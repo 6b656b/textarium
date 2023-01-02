@@ -11,27 +11,31 @@ from typing import List, Set, Union
 
 
 def remove_extra_spaces(text: str) -> str:
-    """_summary_
+    """Removes extra spaces from a string
 
     Args:
-        text (str): My Description
+        text (str): Any string
 
     Returns:
-        str: _description_
+        str: A string without extra spaces (maximum 1 space between two words)
+
+    Examples:
+        >>> remove_extra_spaces("  This line    has extra   spaces   .  ")
+        "This line has extra spaces."
     """
     text_wo_extra_spaces = " ".join(text.split())
 
     return text_wo_extra_spaces.strip()
 
 def remove_charset(text: str, charset: string) -> str:
-    """_summary_
+    """Removes provided chars from a string
 
     Args:
-        text (str): _description_
-        charset (Set): _description_
+        text (str): Any string
+        charset (str): A string of chars which should be removed
 
     Returns:
-        str: _description_
+        str: A string without provided chars
     """
     text_wo_charset = text.translate(
         str.maketrans(charset, " " * len(charset))
