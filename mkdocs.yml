@@ -12,6 +12,8 @@ repo_url: https://github.com/6b656b/textarium
 # Copyright
 copyright: Copyright &copy; 2022 - 2030 Stanislav Dobryakov
 
+# To serve mkdoctstring run this command: mkdocs serve
+
 # Theme
 theme:
   name: material
