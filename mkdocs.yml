@@ -1,0 +1,14 @@
+site_name: Material for MkDocs
+
+theme:
+  name: "material"
+
+plugins:
+  - search
+  - mkdocstrings
+
+nav:
+    - Home: index.md
+    - Installation: installation.md
+    - Code Reference:
+        - Preprocessing: preprocessing-ref.md
