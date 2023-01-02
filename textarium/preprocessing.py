@@ -23,7 +23,7 @@ def remove_extra_spaces(text: str) -> str:
 
     return text_wo_extra_spaces.strip()
 
-def remove_charset(text: str, charset: Set) -> str:
+def remove_charset(text: str, charset: string) -> str:
     """_summary_
 
     Args:
