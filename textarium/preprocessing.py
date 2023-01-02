@@ -14,7 +14,7 @@ def remove_extra_spaces(text: str) -> str:
     """_summary_
 
     Args:
-        text (str): _description_
+        text (str): My Description
 
     Returns:
         str: _description_
