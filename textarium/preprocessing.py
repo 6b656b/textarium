@@ -6,7 +6,7 @@ Text cleaning and preprocessing functions.
 
 import string
 import re
-from typing import List, Set, Union
+from typing import List
 from textarium.extraction import extract_tokens
 
 def remove_extra_spaces(text: str) -> str:

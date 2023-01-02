@@ -1,1 +1,1 @@
-include textarium/data/*
+include textarium/collections/*
