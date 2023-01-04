@@ -1,2 +1,2 @@
-# Workflow module
+# Preprocessing module
 ::: textarium.preprocessing
