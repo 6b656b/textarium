@@ -1,4 +1,4 @@
-# textarium: powerful Python package for text preprocessing.
+# textarium: easy-to-use Python package for text processing.
 [![PyPI Latest Release](https://img.shields.io/pypi/v/textarium)](https://pypi.org/project/textarium/)
 [![License](https://img.shields.io/pypi/l/textarium)](https://github.com/6b656b/textarium/blob/main/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -15,7 +15,7 @@ Binary installer for the latest released version are available at the [Python
 Package Index (PyPI)](https://pypi.org/project/textarium).
 
 ```sh
-# PyPI
+# Type this in your command-line
 pip install textarium
 ```
 ## License
