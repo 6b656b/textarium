@@ -1,6 +1,6 @@
 # Project information
 site_name: Textarium Docs
-# site_url: https://squidfunk.github.io/mkdocs-material/
+site_url: https://6b656b.github.io/textarium/
 site_author: Stanislav Dobryakov
 site_description: >-
   Textarium is a Python package for text processing
