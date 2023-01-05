@@ -43,3 +43,9 @@ class TestPreprocessing(TestCase):
         expected_result = "This line has random digits- ."
         result = preprocessing.remove_digits(test_input)
         self.assertEqual(expected_result, result)
+
+    def test_remove_punctuation(self):
+        test_input = "Hello! I ne-ed remove, all : punctuation."
+        expected_result = "Hello I ne ed remove all punctuation"
+        result = preprocessing.remove_punctuation(test_input)
+        self.assertEqual(expected_result, result)

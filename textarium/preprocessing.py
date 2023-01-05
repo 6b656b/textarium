@@ -98,10 +98,23 @@ def remove_digits(text: str) -> str:
     Returns:
         str: A string without digits
     """
-    digits_string = "1234567890"
     text_wo_digits = text.translate(
-        str.maketrans(digits_string, " " * len(digits_string))
+        str.maketrans(string.digits, " " * len(string.digits))
     )
     text_wo_digits = remove_extra_spaces(text_wo_digits)
-
     return text_wo_digits
+
+def remove_punctuation(text: str) -> str:
+    """Removes punctuation from a string
+
+    Args:
+        text (str): Any string
+
+    Returns:
+        str: A string without punctuation
+    """
+    text_wo_punct = text.translate(
+        str.maketrans(string.punctuation, " " * len(string.punctuation))
+    )
+    text_wo_punct = remove_extra_spaces(text_wo_punct)
+    return text_wo_punct
