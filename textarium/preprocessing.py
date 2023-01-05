@@ -7,7 +7,7 @@ Text cleaning and preprocessing functions.
 import string
 import re
 from typing import List
-from textarium.extraction import extract_tokens
+import textarium.extraction as extraction
 
 def remove_extra_spaces(text: str) -> str:
     """Removes extra spaces from a string
@@ -85,6 +85,6 @@ def remove_tokens(text: str, tokenizer, tokens_to_exclude: List) -> str:
     Returns:
         str: A string without excluded tokens
     """
-    tokens = extract_tokens(text, tokenizer)
+    tokens = extraction.extract_tokens(text, tokenizer)
     cleaned_tokens = [w for w in tokens if not w in tokens_to_exclude]
     return " ".join(cleaned_tokens)

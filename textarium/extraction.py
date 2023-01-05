@@ -7,6 +7,7 @@ Function for extracting information from texts.
 from typing import List
 from razdel import sentenize
 from nltk import tokenize
+import textarium.preprocessing as preprocessing
 
 def extract_tokens(text: str, tokenizer) -> List[str]:
     """Extract tokens from a text
@@ -33,6 +34,7 @@ def extract_sentences(text: str, lang='en') -> List[str]:
     """
     if lang == 'en':
         sentences = tokenize.sent_tokenize(text)
+        sentences = [preprocessing.remove_extra_spaces(s) for s in sentences]
     elif lang == 'ru':
         sentences = [i.text for i in sentenize(text)]
     return sentences
