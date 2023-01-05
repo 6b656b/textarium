@@ -37,3 +37,9 @@ class TestPreprocessing(TestCase):
         expected_result = "This line contains extra word tokens"
         result = preprocessing.remove_tokens(test_input, word_tokenizer, tokens_to_exclude)
         self.assertEqual(expected_result, result)
+
+    def test_remove_digits(self):
+        test_input = "This 3 line has 1234 random digits-10."
+        expected_result = "This line has random digits- ."
+        result = preprocessing.remove_digits(test_input)
+        self.assertEqual(expected_result, result)

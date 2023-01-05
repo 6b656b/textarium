@@ -88,3 +88,20 @@ def remove_tokens(text: str, tokenizer, tokens_to_exclude: List) -> str:
     tokens = extraction.extract_tokens(text, tokenizer)
     cleaned_tokens = [w for w in tokens if not w in tokens_to_exclude]
     return " ".join(cleaned_tokens)
+
+def remove_digits(text: str) -> str:
+    """Removes digits from a string
+
+    Args:
+        text (str): Any string
+
+    Returns:
+        str: A string without digits
+    """
+    digits_string = "1234567890"
+    text_wo_digits = text.translate(
+        str.maketrans(digits_string, " " * len(digits_string))
+    )
+    text_wo_digits = remove_extra_spaces(text_wo_digits)
+
+    return text_wo_digits
