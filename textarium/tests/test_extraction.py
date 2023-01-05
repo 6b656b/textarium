@@ -23,3 +23,17 @@ class TestExtraction(TestCase):
         ]
         result = extraction.extract_sentences(text_input, lang='en')
         self.assertEqual(expected_result, result)
+
+    def test_extract_sentences_ru(self):
+        text_input = """
+        Привет! Меня зовут Робби.
+        Пожалуйста, напиши письмо (т. е. e-mail) Паркеру.
+        Его адрес: parker@gmail.com.
+        """
+        expected_result = [
+            "Привет!", "Меня зовут Робби.",
+            "Пожалуйста, напиши письмо (т. е. e-mail) Паркеру.",
+            "Его адрес: parker@gmail.com."
+        ]
+        result = extraction.extract_sentences(text_input, lang='ru')
+        self.assertEqual(expected_result, result)
