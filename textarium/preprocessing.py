@@ -106,7 +106,7 @@ def remove_tokens(text: str, tokenizer, tokens_to_exclude: List) -> str:
         "line too many unmeaningful words"
     """
     tokens = extraction.extract_tokens(text, tokenizer)
-    cleaned_tokens = [w for w in tokens if not w in tokens_to_exclude]
+    cleaned_tokens = [w for w in tokens if not w.lower() in tokens_to_exclude]
     return " ".join(cleaned_tokens)
 
 def remove_digits(text: str) -> str:
