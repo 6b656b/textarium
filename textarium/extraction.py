@@ -4,13 +4,15 @@
 Function for extracting information from texts.
 """
 
+import re
+import string
 from typing import List
 from razdel import sentenize
 from nltk import tokenize
 import textarium.preprocessing as preprocessing
 
 def extract_tokens(text: str, tokenizer) -> List[str]:
-    """Extract tokens from a text
+    """Extract a list of tokens from a text
 
     Args:
         text (str): Any string
@@ -23,7 +25,7 @@ def extract_tokens(text: str, tokenizer) -> List[str]:
     return tokens
 
 def extract_sentences(text: str, lang='en') -> List[str]:
-    """Splits text string to a list of sentences
+    """Extract a list of sentences from a text
 
     Args:
         text (str): Any string in English or Russian
@@ -39,3 +41,18 @@ def extract_sentences(text: str, lang='en') -> List[str]:
         sentences = [i.text for i in sentenize(text)]
     return sentences
 
+def extract_urls(text:str) -> List[str]:
+    """Extract a list of URLs from a text
+
+    Args:
+        text (str):Any string
+
+    Returns:
+        List[str]: A list of extracted URLs
+    """
+    url_regex = re.compile(
+        "((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)", re.DOTALL
+    )
+    parsed_url_objects = re.findall(url_regex, text)
+    urls = [url_param[0].strip(string.punctuation) for url_param in parsed_url_objects]
+    return urls

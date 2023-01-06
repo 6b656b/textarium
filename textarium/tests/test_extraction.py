@@ -37,3 +37,16 @@ class TestExtraction(TestCase):
         ]
         result = extraction.extract_sentences(text_input, lang='ru')
         self.assertEqual(expected_result, result)
+
+    def test_extract_urls(self):
+        text_input = """
+        There is one link: http://google.com.
+        And another one: https://www.google.com/images?v=1&p=2!
+        This is not a link: test@gmail.com
+        """
+        exptected_result = [
+            "http://google.com",
+            "https://www.google.com/images?v=1&p=2"
+        ]
+        result = extraction.extract_urls(text_input)
+        self.assertEqual(exptected_result, result)
