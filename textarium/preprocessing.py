@@ -75,7 +75,7 @@ def remove_urls(text: str) -> str:
     return text_wo_urls
 
 def remove_tokens(text: str, tokenizer, tokens_to_exclude: List) -> str:
-    """Removes any particular words from a string (e.g. stopwords)
+    """Removes any particular tokens from a string (e.g. stopwords)
 
     Args:
         text (str): Any string
