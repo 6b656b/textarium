@@ -19,5 +19,4 @@ class TestText(TestCase):
         )
         text = Text(input_text)
         text.prepare()
-        print(text.prepared_text)
         self.assertEqual(expected_result, text.prepared_text)
