@@ -138,3 +138,14 @@ def remove_punctuation(text: str) -> str:
     )
     text_wo_punct = remove_extra_spaces(text_wo_punct)
     return text_wo_punct
+
+def make_lowercase(text: str) -> str:
+    """Makes text lowercase
+
+    Args:
+        text (str): Any string
+
+    Returns:
+        str: Lowercase text
+    """
+    return text.lower()
