@@ -35,6 +35,10 @@ def remove_charset(text: str, charset: string) -> str:
 
     Returns:
         str: A string without provided chars
+
+    Examples:
+        >>> remove_charset("I want to remove w and r from this line")
+        "I ant to emove and fom this line"
     """
     text_wo_charset = text.translate(
         str.maketrans(charset, " " * len(charset))
@@ -51,6 +55,10 @@ def remove_html(text: str) -> str:
 
     Returns:
         str: A string without HTML-tags
+
+    Examples:
+        >>> remove_html("<div>A html-block with price</div>")
+        "A html-block with price"
     """
     re_pattern = re.compile("<.*?>+")
     text = re_pattern.sub(r" ", text)
@@ -68,6 +76,10 @@ def remove_urls(text: str) -> str:
 
     Returns:
         str: A string without any URLs
+
+    Examples:
+        >>> remove_urls("Don't need links like http://google.com in my text.")
+        "Don't need links like in my text."
     """
     url_pattern = re.compile(r"http\S+")
     text_wo_urls = url_pattern.sub(r"", text)
@@ -84,6 +96,14 @@ def remove_tokens(text: str, tokenizer, tokens_to_exclude: List) -> str:
 
     Returns:
         str: A string without excluded tokens
+
+    Examples:
+        >>> from textarium.models import word_tokenizer
+            remove_tokens(
+            "This line has too many unmeaningful words", 
+            tokenizer=word_tokenizer, tokens_to_exclude=["this", "has"]
+            )
+        "line too many unmeaningful words"
     """
     tokens = extraction.extract_tokens(text, tokenizer)
     cleaned_tokens = [w for w in tokens if not w in tokens_to_exclude]
