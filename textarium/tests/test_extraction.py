@@ -4,13 +4,13 @@ import textarium.extraction as extraction
 from textarium.models import word_tokenizer
 
 class TestExtraction(TestCase):
-    def test_extract_tokens(self):
+    def test_extract_tokens_0(self):
         test_input = "This line has 5 tokens"
         expected_result = ["This", "line", "has", "5", "tokens"]
         result = extraction.extract_tokens(test_input, tokenizer=word_tokenizer)
         self.assertEqual(expected_result, result)
 
-    def test_extract_sentences_en(self):
+    def test_extract_sentences_en_0(self):
         text_input = """
         Hello! My name is Robbie. 
         Please, write an email to Mr. Parker. 
@@ -24,7 +24,7 @@ class TestExtraction(TestCase):
         result = extraction.extract_sentences(text_input, lang='en')
         self.assertEqual(expected_result, result)
 
-    def test_extract_sentences_ru(self):
+    def test_extract_sentences_ru_0(self):
         text_input = """
         Привет! Меня зовут Робби.
         Пожалуйста, напиши письмо (т. е. e-mail) Паркеру.
@@ -38,7 +38,7 @@ class TestExtraction(TestCase):
         result = extraction.extract_sentences(text_input, lang='ru')
         self.assertEqual(expected_result, result)
 
-    def test_extract_urls(self):
+    def test_extract_urls_0(self):
         text_input = """
         There is one link: http://google.com.
         And another one: https://www.google.com/images?v=1&p=2!
